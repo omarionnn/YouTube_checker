@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>YouTube Video Q&A</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>YouTube Video Q&A</h1>
+            <p>Extract answers from YouTube videos using AI</p>
+        </header>
+
+        <div class="input-section">
+            <div class="form-group">
+                <label for="youtube-url">YouTube Video URL:</label>
+                <input type="text" id="youtube-url" placeholder="https://www.youtube.com/watch?v=...">
+            </div>
+            
+            <div class="form-group">
+                <label for="question">Your Question:</label>
+                <textarea id="question" placeholder="What does the video say about..."></textarea>
+            </div>
+            
+            <button id="submit-btn">Get Answer</button>
+            <div id="loading" class="hidden">Analyzing video transcript...</div>
+        </div>
+
+        <div id="result-section" class="hidden">
+            <h2>Answer:</h2>
+            <div id="answer-container"></div>
+            
+            <div class="follow-up-section">
+                <h3>Ask a follow-up question:</h3>
+                <div class="form-group">
+                    <textarea id="follow-up-question" placeholder="Ask another question about this video..."></textarea>
+                </div>
+                <button id="follow-up-btn">Submit Follow-up</button>
+            </div>
+        </div>
+
+        <div id="error-container" class="hidden"></div>
+    </div>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
